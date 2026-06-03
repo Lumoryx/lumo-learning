@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+/* ============================================================
+   Lumo Learning — Design System
+   Premium · dark + bright duo · iris gradient accent · motion
+   ============================================================ */
+
+/* ---------- LIGHT ---------- */
+:root,
+:root[data-theme="light"] {
+  --bg:         #e8eaf0;
+  --screen:     #ffffff;
+  --surface:    #ffffff;
+  --surface-2:  #f3f4f9;
+  --surface-3:  #eaecf3;
+  --ink:        #131420;
+  --ink-2:      #595c70;
+  --ink-3:      #9698ad;
+  --line:       #eceef4;
+  --line-2:     #e0e2ec;
+  --accent:     #5b54e6;
+  --accent-2:   #8b5cf6;
+  --accent-ink: #5147dd;
+  --accent-soft:#eeecfe;
+  --accent-ring:#ddd9fb;
+  --grad:       linear-gradient(135deg, #6E7BFF 0%, #9B6BFF 55%, #C56BF0 100%);
+  --grad-soft:  linear-gradient(135deg, #eef0ff, #f4ecff 60%, #fbecf9);
+  --good:       #2bb673;
+  --warn:       #e0973f;
+  --glow:       0 10px 30px -10px rgba(110,123,255,.55);
+  --shadow-sm:  0 1px 2px rgba(20,22,40,.04), 0 6px 16px rgba(20,22,40,.05);
+  --shadow-md:  0 2px 8px rgba(20,22,40,.06), 0 20px 48px rgba(20,22,40,.09);
+  --shadow-lg:  0 40px 90px rgba(20,22,40,.18);
+}
+
+/* ---------- DARK ---------- */
+:root[data-theme="dark"] {
+  --bg:         #050507;
+  --screen:     #0b0b11;
+  --surface:    #15151d;
+  --surface-2:  #1c1c26;
+  --surface-3:  #24242f;
+  --ink:        #f3f3f8;
+  --ink-2:      #a6a8bd;
+  --ink-3:      #6b6d82;
+  --line:       #24242f;
+  --line-2:     #2e2e3b;
+  --accent:     #8b8dff;
+  --accent-2:   #b18bff;
+  --accent-ink: #b6b7ff;
+  --accent-soft:rgba(124,130,255,.15);
+  --accent-ring:rgba(124,130,255,.32);
+  --grad:       linear-gradient(135deg, #7C82FF 0%, #A678FF 55%, #DA78F0 100%);
+  --grad-soft:  linear-gradient(135deg, rgba(124,130,255,.18), rgba(190,120,240,.14));
+  --good:       #3ad28b;
+  --warn:       #e7ac63;
+  --glow:       0 14px 44px -10px rgba(124,130,255,.6);
+  --shadow-sm:  0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.32);
+  --shadow-md:  0 2px 10px rgba(0,0,0,.45), 0 24px 56px rgba(0,0,0,.55);
+  --shadow-lg:  0 50px 110px rgba(0,0,0,.7);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.cjk { font-family: 'Noto Sans SC', 'Manrope', sans-serif; }
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ---- Card ---- */
+.lumo-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- Chip ---- */
+.lumo-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px; padding: 0 12px; border-radius: 99px;
+  font-size: 12px; font-weight: 600;
+  background: var(--surface-2); color: var(--ink-2);
+  border: 1px solid var(--line);
+}
+.lumo-chip--accent {
+  background: var(--accent-soft); color: var(--accent-ink); border-color: transparent;
+}
+.lumo-chip--grad {
+  background: var(--grad); color: #fff; border: none; box-shadow: var(--glow);
+}
+
+/* ---- Button ---- */
+.lumo-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 52px; padding: 0 24px; border-radius: 99px;
+  font-family: inherit; font-size: 15px; font-weight: 700;
+  border: none; cursor: pointer; transition: opacity .15s, transform .1s;
+  white-space: nowrap;
+}
+.lumo-btn:active { transform: scale(.97); opacity: .85; }
+.lumo-btn--primary {
+  background: var(--grad); color: #fff; box-shadow: var(--glow);
+}
+.lumo-btn--secondary {
+  background: var(--surface-2); color: var(--ink); border: 1px solid var(--line);
+  box-shadow: none;
+}
+.lumo-btn--ghost {
+  background: transparent; color: var(--ink-2);
+}
+.lumo-btn--sm { height: 38px; font-size: 13px; padding: 0 16px; }
+
+/* ---- Tab Bar ---- */
+.lumo-tabbar {
+  display: flex; align-items: center; justify-content: space-around;
+  padding: 8px 6px 12px;
+  border-top: 1px solid var(--line);
+  background: var(--screen);
+}
+.lumo-tab {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  color: var(--ink-3); font-size: 10px; font-weight: 700;
+  min-width: 48px;
+}
+.lumo-tab.active { color: var(--accent-ink); }
+.lumo-tab__dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--accent); opacity: 0;
+}
+.lumo-tab.active .lumo-tab__dot { opacity: 1; }
+
+/* ---- Eyebrow ---- */
+.eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--ink-3);
+}
+
+/* ---- Progress Ring ---- */
+.progress-ring { transform: rotate(-90deg); }
