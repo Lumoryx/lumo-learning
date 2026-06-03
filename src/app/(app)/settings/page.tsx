@@ -4,20 +4,19 @@ import { useAuth } from '@/lib/store/auth';
 import type { ArticleMode, Lang } from '@/lib/api/types';
 import { ChevronLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import type { ReactNode } from 'react';
 
-export default function SettingsPage() {
-  const router = useRouter();
-  const { theme, toggleTheme, articleMode, setArticleMode, appLanguage, setAppLanguage } = useSettings();
-  const { aiKey } = useAuth();
-
-  const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
+function Section({ title, children }: { title: string; children: ReactNode }) {
+  return (
     <div style={{ marginBottom: 24 }}>
       <div className="eyebrow" style={{ marginBottom: 10 }}>{title}</div>
       <div className="lumo-card" style={{ padding: '0 16px' }}>{children}</div>
     </div>
   );
+}
 
-  const Row = ({ label, children, last }: { label: string; children: React.ReactNode; last?: boolean }) => (
+function Row({ label, children, last }: { label: string; children: ReactNode; last?: boolean }) {
+  return (
     <div style={{
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       padding: '14px 0', borderBottom: last ? 'none' : '1px solid var(--line)',
@@ -26,8 +25,10 @@ export default function SettingsPage() {
       {children}
     </div>
   );
+}
 
-  const Toggle = ({ on, onToggle }: { on: boolean; onToggle: () => void }) => (
+function Toggle({ on, onToggle }: { on: boolean; onToggle: () => void }) {
+  return (
     <div onClick={onToggle} style={{
       width: 44, height: 26, borderRadius: 99, cursor: 'pointer',
       background: on ? 'var(--accent)' : 'var(--line-2)', position: 'relative', transition: 'background .2s',
@@ -39,6 +40,12 @@ export default function SettingsPage() {
       }} />
     </div>
   );
+}
+
+export default function SettingsPage() {
+  const router = useRouter();
+  const { theme, toggleTheme, articleMode, setArticleMode, appLanguage, setAppLanguage } = useSettings();
+  const { aiKey } = useAuth();
 
   return (
     <div style={{ padding: '16px 20px 40px' }}>
