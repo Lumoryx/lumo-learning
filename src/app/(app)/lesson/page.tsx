@@ -2,6 +2,7 @@
 import { mockDashboard } from '@/lib/mock-data';
 import { LessonCard } from '@/components/home/LessonCard';
 import { Plus, Shuffle } from 'lucide-react';
+import Link from 'next/link';
 
 const lessons = [
   mockDashboard.todayLesson,
@@ -31,9 +32,11 @@ export default function LessonListPage() {
 
       {/* Actions */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 24 }}>
-        <button className="lumo-btn lumo-btn--primary" style={{ borderRadius: 16, height: 52 }}>
-          <Plus size={18} /> Custom
-        </button>
+        <Link href="/lesson/generate" style={{ textDecoration: 'none', display: 'contents' }}>
+          <button className="lumo-btn lumo-btn--primary" style={{ borderRadius: 16, height: 52, width: '100%' }}>
+            <Plus size={18} /> Custom
+          </button>
+        </Link>
         <button className="lumo-btn lumo-btn--secondary" style={{ borderRadius: 16, height: 52 }}>
           <Shuffle size={18} /> Shuffle
         </button>
